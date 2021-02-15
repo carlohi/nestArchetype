@@ -22,8 +22,8 @@ export class CatsController {
   constructor(private catsService: CatsService) {}
 
   @Post()
-  async create(@Body() createCatDto: CreateCatDto) {
-    const data = await this.catsService.create(createCatDto);
+  create(@Body() createCatDto: CreateCatDto) {
+    const data = this.catsService.create(createCatDto);
     return {
       message: 'Peticion correcta',
       data: data,
@@ -31,11 +31,11 @@ export class CatsController {
   }
 
   @Put(':id')
-  async update(
+  update(
     @Body() editCatDto: EditCatDto,
     @Param('id', ParseIntPipe) id: number,
   ) {
-    const data = await this.catsService.edit(id, editCatDto);
+    const data = this.catsService.edit(id, editCatDto);
     return {
       message: 'Peticion correcta',
       data: data,
@@ -43,17 +43,17 @@ export class CatsController {
   }
 
   @Get()
-  async findAll(@Query() paginationQuery: PaginationQueryDto): Promise<Cat[]> {
+  findAll(@Query() paginationQuery: PaginationQueryDto) {
     return this.catsService.findAll(paginationQuery);
   }
 
   @Get(':id')
-  async findOne(@Param('id', ParseIntPipe) id: number) {
-    return await this.catsService.findOne(id);
+  findOne(@Param('id', ParseIntPipe) id: number) {
+    return this.catsService.findOne(id);
   }
 
   @Delete(':id')
-  async delete(@Param('id', ParseIntPipe) id: number) {
-    return await this.catsService.delete(id);
+  delete(@Param('id', ParseIntPipe) id: number) {
+    return this.catsService.delete(id);
   }
 }

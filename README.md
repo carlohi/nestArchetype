@@ -48,6 +48,9 @@ $ yarn add @nestjs/typeorm typeorm mysql2
 # Class Transformer
 $ yarn add class-transformer
 
+# Testing
+$ yarn add --dev @nestjs/testing
+
 ```
 
 ## Docker

@@ -22,10 +22,10 @@ export class CatsService {
     return await this.catRepository.save(cat);
   }
 
-  async findAll(paginationQuery: PaginationQueryDto): Promise<Cat[]> {
+  findAll(paginationQuery: PaginationQueryDto) {
     const { limit, offset } = paginationQuery;
-    if (paginationQuery.limit > 0 && paginationQuery.offset > 0) {
-      return await this.catRepository.find({
+    if (paginationQuery.limit > 0 && paginationQuery.offset >= 0) {
+      return this.catRepository.find({
         skip: offset,
         take: limit,
       });
@@ -36,7 +36,7 @@ export class CatsService {
     }
   }
 
-  async findOne(id: number): Promise<Cat> {
+  async findOne(id: number) {
     const cat = await this.catRepository.findOne(id);
 
     if (!cat) {

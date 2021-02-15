@@ -1,16 +1,16 @@
-import { Column, PrimaryGeneratedColumn, Entity } from "typeorm";
+import { Column, PrimaryGeneratedColumn, Entity } from 'typeorm';
 
 @Entity()
 export class Cat {
-    @PrimaryGeneratedColumn()
-    id:number;
+  @PrimaryGeneratedColumn()
+  id: number;
 
-    @Column()
-    name: string;
+  @Column()
+  name: string;
 
-    @Column()
-    age: number;
+  @Column()
+  age: number;
 
-    @Column()
-    breed: string;
-  }
+  @Column()
+  breed: string;
+}
