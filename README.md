@@ -59,3 +59,18 @@ $ yarn add --dev @nestjs/testing
 # create a mysql container
 $ docker run -d -p 33061:3306 --name mysql57 -e MYSQL_ROOT_PASSWORD=secret mysql:5.7 --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
 ```
+
+
+## Start the server
+
+```bash
+# To download libraries
+$ yarn
+
+# To start the server
+$ yarn start
+
+# To start the server in dev mode
+$ yarn start:dev
+
+```
